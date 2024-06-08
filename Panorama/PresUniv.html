@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pannellum 360 Viewer</title>
+
+    <!-- Load script Pannellum dari CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <!-- Menentukan tinggi image 360 -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #pannellum-image-360 {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="pannellum-image-360"></div>
+    <script>
+      // parameter pertama adalah id (target) element
+      // parameter kedua adalah option nya
+      pannellum.viewer("pannellum-image-360", {
+        default: {
+          // scene yang akan ditampilkan pertama kali
+          firstScene: "campus_ground",
+          sceneFadeDuration: 1000,
+        },
+        scenes: {
+          campus_ground: {
+            title: "Campus Ground",
+            pitch: 0,
+            yaw: -10,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_1.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 90,
+                type: "scene",
+                text: "parking ticket",
+                sceneId: "parking_ticket",
+              },
+              {
+                pitch: 0,
+                yaw: -90,
+                type: "scene",
+                text: "Left Yard",
+                sceneId: "left_yard",
+              },
+              {
+                pitch: 0,
+                yaw: -15,
+                type: "scene",
+                text: "front_yard",
+                sceneId: "front_yard",
+              },
+            ],
+          },
+          parking_ticket: {
+            title: "Parking Ticket",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_3.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -100,
+                type: "scene",
+                text: "Front Yard",
+                sceneId: "front_yard",
+              },
+              {
+                pitch: 0,
+                yaw: 25,
+                type: "scene",
+                text: "Clinic PresUniv",
+                sceneId: "clinic",
+              },
+              {
+                pitch: 0,
+                yaw: -10,
+                type: "scene",
+                text: "parking_back_building_a",
+                sceneId: "parking_back_building_a",
+              },
+            ],
+          },
+          clinic: {
+            title: "Clinic PresUniv",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_5.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -110,
+                type: "scene",
+                text: "Front Yard",
+                sceneId: "front_yard",
+              },
+              {
+                pitch: 0,
+                yaw: 15,
+                type: "scene",
+                text: "Car Parking on Left of building A",
+                sceneId: "car_parking_left_building_A",
+              },
+            ],
+          },
+          left_yard: {
+            title: "left Yard",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_6.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 100,
+                type: "scene",
+                text: "car_parking",
+                sceneId: "car_parking",
+              },
+              {
+                pitch: 0,
+                yaw: -130,
+                type: "scene",
+                text: "front_yard",
+                sceneId: "front_yard",
+              },
+              {
+                pitch: 0,
+                yaw: -50,
+                type: "scene",
+                text: "campus_ground",
+                sceneId: "campus_ground",
+              },
+            ],
+          },
+          front_yard: {
+            title: "Front Yard",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_4.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -100,
+                type: "scene",
+                text: "Left Yard",
+                sceneId: "left_yard",
+              },
+              {
+                pitch: -10,
+                yaw: 70,
+                type: "scene",
+                text: "Clinic PresUniv",
+                sceneId: "clinic",
+              },
+              {
+                pitch: 0,
+                yaw: -20,
+                type: "scene",
+                text: "building_a_front_door",
+                sceneId: "building_a_front_door",
+              },
+              {
+                pitch: 0,
+                yaw: -180,
+                type: "scene",
+                text: "campus_ground",
+                sceneId: "campus_ground",
+              },
+            ],
+          },
+          building_a_front_door: {
+            title: "building_a_front_door",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_19.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -10,
+                type: "scene",
+                text: "lift",
+                sceneId: "lift",
+              },
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "front_yard",
+                sceneId: "front_yard",
+              },
+            ],
+          },
+          lift: {
+            title: "lift",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_20.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "second_floor",
+                sceneId: "second_floor",
+              },
+              {
+                pitch: 5,
+                yaw: 180,
+                type: "scene",
+                text: "third_floor",
+                sceneId: "third_floor",
+              },
+              {
+                pitch: 10,
+                yaw: 180,
+                type: "scene",
+                text: "fourth_floor",
+                sceneId: "fourth_floor",
+              },
+              {
+                pitch: -10,
+                yaw: 90,
+                type: "scene",
+                text: "building_a_front_door",
+                sceneId: "building_a_front_door",
+              },
+            ],
+          },
+          second_floor: {
+            title: "second_floor",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_21.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "first_floor",
+                sceneId: "lift",
+              },
+              {
+                pitch: 5,
+                yaw: 180,
+                type: "scene",
+                text: "third_floor",
+                sceneId: "third_floor",
+              },
+              {
+                pitch: 10,
+                yaw: 180,
+                type: "scene",
+                text: "fourth_floor",
+                sceneId: "fourth_floor",
+              },
+              {
+                pitch: -10,
+                yaw: 90,
+                type: "scene",
+                text: "second_floor_detail",
+                sceneId: "second_floor_detail",
+              },
+            ],
+          },
+          second_floor_detail: {
+            title: "second_floor_detail",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_23.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "second_floor",
+                sceneId: "second_floor",
+              },
+            ],
+          },
+          third_floor: {
+            title: "second_floor",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_22.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "first_floor",
+                sceneId: "lift",
+              },
+              {
+                pitch: 5,
+                yaw: 180,
+                type: "scene",
+                text: "second_floor",
+                sceneId: "second_floor",
+              },
+              {
+                pitch: 10,
+                yaw: 180,
+                type: "scene",
+                text: "fourth_floor",
+                sceneId: "fourth_floor",
+              },
+              {
+                pitch: -10,
+                yaw: 90,
+                type: "scene",
+                text: "third_floor_detail",
+                sceneId: "third_floor_detail",
+              },
+            ],
+          },
+          third_floor_detail: {
+            title: "third_floor_detail",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_24.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "third_floor",
+                sceneId: "third_floor",
+              },
+            ],
+          },
+          fourth_floor: {
+            title: "fourth_floor",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_25.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 180,
+                type: "scene",
+                text: "first_floor",
+                sceneId: "lift",
+              },
+              {
+                pitch: 5,
+                yaw: 180,
+                type: "scene",
+                text: "second_floor",
+                sceneId: "second_floor",
+              },
+              {
+                pitch: 10,
+                yaw: 180,
+                type: "scene",
+                text: "third_floor",
+                sceneId: "third_floor",
+              },
+              {
+                pitch: -10,
+                yaw: 90,
+                type: "scene",
+                text: "fourth_floor_detail",
+                sceneId: "fourth_floor_detail",
+              },
+            ],
+          },
+          fourth_floor_detail: {
+            title: "fourth_floor_detail",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_26.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 140,
+                type: "scene",
+                text: "fourth_floor",
+                sceneId: "fourth_floor",
+              },
+            ],
+          },
+          car_parking: {
+            title: "Car Parking",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_7.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -130,
+                type: "scene",
+                text: "Front Building B",
+                sceneId: "front_building_b",
+              },
+              {
+                pitch: 0,
+                yaw: 45,
+                type: "scene",
+                text: "left_yard",
+                sceneId: "left_yard",
+              },
+            ],
+          },
+          front_building_b: {
+            title: "Front Building B",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_8.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -150,
+                type: "scene",
+                text: "PUCC Parking Area",
+                sceneId: "pucc_parking",
+              },
+              {
+                pitch: -10,
+                yaw: 60,
+                type: "scene",
+                text: "Building A to B",
+                sceneId: "zebra_cross_building_b_to_a",
+              },
+              {
+                pitch: -10,
+                yaw: 100,
+                type: "scene",
+                text: "car_parking",
+                sceneId: "car_parking",
+              },
+              {
+                pitch: -10,
+                yaw: -25,
+                type: "scene",
+                text: "building_b_front_door",
+                sceneId: "building_b_front_door",
+              },
+            ],
+          },
+          zebra_cross_building_b_to_a: {
+            title: "Building A to B",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_16.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -45,
+                type: "scene",
+                text: "front_building_b",
+                sceneId: "front_building_b",
+              },
+              {
+                pitch: 0,
+                yaw: -10,
+                type: "scene",
+                text: "building_b_front_door",
+                sceneId: "building_b_front_door",
+              },
+            ],
+          },
+          building_b_front_door: {
+            title: "Building A to B",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_17.jpg",
+            hotSpots: [
+              {
+                pitch: -10,
+                yaw: 170,
+                type: "scene",
+                text: "zebra_cross_building_b_to_a",
+                sceneId: "zebra_cross_building_b_to_a",
+              },
+              {
+                pitch: 0,
+                yaw: -10,
+                type: "scene",
+                text: "building_b_back_door",
+                sceneId: "building_b_back_door",
+              },
+            ],
+          },
+          building_b_back_door: {
+            title: "Building A to B",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_18.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -150,
+                type: "scene",
+                text: "motor_parking_building_b",
+                sceneId: "motor_parking_building_b",
+              },
+              {
+                pitch: 0,
+                yaw: 35,
+                type: "scene",
+                text: "building_b_front_door",
+                sceneId: "building_b_front_door",
+              },
+            ],
+          },
+          pucc_parking: {
+            title: "PUCC Parking Area",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_9.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -145,
+                type: "scene",
+                text: "PUCC Front Yard",
+                sceneId: "pucc_front_yard",
+              },
+              {
+                pitch: 0,
+                yaw: -25,
+                type: "scene",
+                text: "Motor Parking Building B",
+                sceneId: "motor_parking_building_b",
+              },
+              {
+                pitch: 0,
+                yaw: 30,
+                type: "scene",
+                text: "front_building_b",
+                sceneId: "front_building_b",
+              },
+            ],
+          },
+          pucc_front_yard: {
+            title: "PUCC Front Yard",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_10.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: 0,
+                type: "scene",
+                text: "PUCC Parking Area",
+                sceneId: "pucc_parking",
+              },
+            ],
+          },
+          motor_parking_building_b: {
+            title: "Motor Parking Building B",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_11.jpg",
+            hotSpots: [
+              {
+                pitch: -5,
+                yaw: -135,
+                type: "scene",
+                text: "Canteen Backyard",
+                sceneId: "canteen_backyard",
+              },
+              {
+                pitch: -10,
+                yaw: 30,
+                type: "scene",
+                text: "pucc_parking",
+                sceneId: "pucc_parking",
+              },
+              {
+                pitch: -5,
+                yaw: -45,
+                type: "scene",
+                text: "building_b_back_door",
+                sceneId: "building_b_back_door",
+              },
+            ],
+          },
+          canteen_backyard: {
+            title: "Canteen Backyard",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_12.jpg",
+            hotSpots: [
+              {
+                pitch: -10,
+                yaw: 60,
+                type: "scene",
+                text: "motor_parking_building_b",
+                sceneId: "motor_parking_building_b",
+              },
+              {
+                pitch: -10,
+                yaw: -60,
+                type: "scene",
+                text: "parking_back_building_a",
+                sceneId: "parking_back_building_a",
+              },
+            ],
+          },
+          car_parking_left_building_A: {
+            title: "Car Parking on Left of building A",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_13.jpg",
+            hotSpots: [
+              {
+                pitch: -20,
+                yaw: 120,
+                type: "scene",
+                text: "Motor Parking Area",
+                sceneId: "motor_parking_area",
+              },
+              {
+                pitch: -15,
+                yaw: 20,
+                type: "scene",
+                text: "parking_back_building_a",
+                sceneId: "parking_back_building_a",
+              },
+            ],
+          },
+          motor_parking_area: {
+            title: "Motor Parking Area",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_14.jpg",
+            hotSpots: [
+              {
+                pitch: 0,
+                yaw: -150,
+                type: "scene",
+                text: "PUCC Parking Area",
+                sceneId: "pucc_parking",
+              },
+            ],
+          },
+          parking_back_building_a: {
+            title: "parking_back_building_a",
+            pitch: 0,
+            yaw: 0,
+            hfov: 100,
+            type: "equirectangular",
+            panorama: "assets/panorama_15.jpg",
+            hotSpots: [
+              {
+                pitch: -10,
+                yaw: 120,
+                type: "scene",
+                text: "canteen_backyard",
+                sceneId: "canteen_backyard",
+              },
+              {
+                pitch: -10,
+                yaw: -50,
+                type: "scene",
+                text: "parking_ticket",
+                sceneId: "parking_ticket",
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
